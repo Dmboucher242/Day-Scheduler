@@ -1,0 +1,9 @@
+.header{
+    color: darkslategray;
+    width: 100%;
+    text-align: center;
+}
+hr{
+    height: 10px;
+    background-color: darkslategray;
+}
