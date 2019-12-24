@@ -19,3 +19,12 @@ p{
     font-size: 17px;
     font-weight: bold;
 }
+#saveBtn{
+    margin-top: 10px;
+    margin-left: 40px;
+    background-color: firebrick;
+    height: 40px;
+    width: 70px;
+    border-radius: 12px;
+
+}
