@@ -11,6 +11,8 @@ $(".saveBtn").on("click", function(){
 });
 
 //setting current day 
+const date = moment().format("MMM Do YY"); 
+$( "#date" ).append(`<h2>${date}</h2>`);
 //getting local storage
 $("#row1 .textArea").val(localStorage.getItem("9"));
 $("#row2 .textArea").val(localStorage.getItem("10"));
