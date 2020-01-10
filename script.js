@@ -1,25 +1,50 @@
-// var saveBtn = document.getElementById("saveBtn")
-// var startHour = document.getElementById("row1")
-// var endHour = document.getElementById("row9")
+//setting local storage;
+//add event listeners to all save buttons, specify clicks
+$(".saveBtn").on("click", function(){
+    //grab values from text area
+   const userInput = $(this).siblings(".textArea").val();
+    //grab time from parent with data-attr
+   const currentHour = $(this).parent().data("time");
 
-// var today = new Date();
-// var dd = String(today.getDate()).padStart(2, '0');
-// var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-// var yyyy = today.getFullYear();
+    //set time and click events into local storage
+    localStorage.setItem(currentHour,userInput)
+});
 
-// today = mm + '/' + dd + '/' + yyyy;
-// document.write(today);
+//setting current day 
+//getting local storage
+$("#row1 .textArea").val(localStorage.getItem("9"));
+$("#row2 .textArea").val(localStorage.getItem("10"));
+$("#row3 .textArea").val(localStorage.getItem("11"));
+$("#row4 .textArea").val(localStorage.getItem("12"));
+$("#row5 .textArea").val(localStorage.getItem("13"));
+$("#row6 .textArea").val(localStorage.getItem("14"));
+$("#row7 .textArea").val(localStorage.getItem("15"));
+$("#row8 .textArea").val(localStorage.getItem("16"));
+$("#row9 .textArea").val(localStorage.getItem("17"));
 
-let date = document.getElementById("date");
-let output = document.getElementById("date");
+//setting colors:
 
-function date(){
-    let today = new Date() + 1;
-    let  month = today.getMonth();
-    let year = today.getFullYear();
-    let date = today.getDate();
-
-    let currentDate = `$(month)/$(date)/$(year)`;
-    output.innerText = currentDate;
-
-}
+function timeColor(){
+ //get current time / using moment
+ const currentHour = moment().hour();
+ //loop through time blocks to compare current time
+ $(".timeDiv").each(function(){
+ //get current div hour from data-
+ const divTime = $(this).data("time")
+    //create if else statements to add classes of past present and future
+    if (currentHour === divTime) {
+        //remove class
+        $(this).removeClass
+        //add class for current time
+        $(this).addClass("present")
+    } else if(currentHour > divTime) {
+        //add class for past time
+        $(this).addClass("past")
+        
+    } else{
+        //add class for future time
+        $(this).addClass("future")
+    }
+ });
+};
+timeColor()
